@@ -1,0 +1,17 @@
+<h1>Classes</h1>
+<ng-container *ngIf="statusMsg !== ''">
+  <h3>Current status</h3>
+  <p >{{ statusMsg }}</p>
+  <button (click)="clearStatusMsg()">Clear status</button>
+</ng-container>
+
+<p *ngFor="let student of studentList" (click)="setStatusMsg(student)">
+  {{ student }}
+</p>
+<p *ngIf="studentList.length === 0">You have no classes selected, click the button to add a class</p>
+<button (click)="addStudent()">Add class</button>
+<button (click)="removeStudent()" [disabled]="studentList.length === 0">Remove class</button>
+<button (click)="clearStudent()" [disabled]="studentList.length === 0">clear classes</button>
+<p *ngIf="studentList.length > 3">
+  You have more than 3 classes selected
+</p>
